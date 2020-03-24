@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Post</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blogpost of posts; let i = index;">
+                    <td class="d-flex flex-column justify-content-center user-column">
+                        <div>{{blogpost.userinfo.name}}</div>
+                        <div>
+                            <a href="http://{{blogpost.userinfo.website}}" target="_blank">{{blogpost.userinfo.company.name}}</a>
+                        </div>
+                    </td>
+                    <td class="post-column">
+                        <div class="flex-column">
+                            <ng-template [ngIf]="blogpost.post.userId === bloggerId" [ngIfElse]="viewonly">
+                                <h4><a [routerLink]="['/post', blogpost.post.id]">{{blogpost.post.title}}</a></h4>
+                                <div>{{blogpost.post.body}}</div>
+                            </ng-template>
+
+                            <ng-template #viewonly>
+                                <h4>{{blogpost.post.title}}</h4>
+                                <div>{{blogpost.post.body}}</div>
+                            </ng-template>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+        <div class="d-flex justify-content-end">
+            <app-pagination [collectionSize]="totalItems" [pageSize]="itemsPerPage" (onPageChange)="loadPage($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>

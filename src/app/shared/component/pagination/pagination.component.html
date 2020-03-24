@@ -1,0 +1,13 @@
+<nav>
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{'disabled': currentPage === 1 }">
+        <!-- <a class="page-link" (click)="goToPage(currentPage - 1)">Previous</a> -->
+        <fa-icon [icon]="'arrow-left'" (click)="goToPage(currentPage - 1)"></fa-icon>
+      </li>
+     
+      <li class="page-item" [ngClass]="{'disabled': currentPage === totalPages }">
+        <!-- <a class="page-link" (click)="goToPage(currentPage + 1)">Next</a> -->
+        <fa-icon [icon]="'arrow-right'" (click)="goToPage(currentPage + 1)"></fa-icon>
+      </li>
+    </ul>
+  </nav>

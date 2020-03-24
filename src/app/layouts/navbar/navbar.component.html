@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['/home']">{{pageTitle}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul *ngIf="authenticated" class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="topnav-link" [routerLink]="['/home']">Go back to Home Page</a>
+        </li>
+       
+      </ul>
+      <ul class="navbar-nav ml-auto logged-status">
+        <li *ngIf="authenticated">Welcome {{ loggedUser.name }}</li>
+        <li *ngIf="!authenticated">You are not logged in</li>
+      </ul>
+      <form class="topnav-form form-inline">
+        <button *ngIf="authenticated" [routerLink]="['/newpost']" [queryParams]="{ new: 'true'}" class="btn btn-primary" type="button">New Post</button>
+        <button *ngIf="!authenticated" [routerLink]="['/login']" class="btn btn-primary" type="button">Login</button>
+        <button *ngIf="authenticated" (click)="logout()" class="btn btn-primary" type="button">Logout</button>
+      </form>
+    </div>
+  </nav>

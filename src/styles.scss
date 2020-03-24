@@ -1,0 +1,40 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+.form-actions {
+    button {
+        margin: 0 0 0 5px;
+    } 
+}
+
+.pagination {
+   fa-icon, i {
+    margin: 0 25px;
+    font-size: 24px;
+    cursor: pointer;
+   }
+
+   .disabled {
+    fa-icon, i {
+        color: #ccc;
+    }
+   }
+}
+.login-container {
+    margin-top: 100px;
+}
+
+.error-alert {
+    color: rgb(197, 26, 26);
+    font-weight: 700;
+}
+
+.message-text {
+    height: 250px !important;
+}
+.user-column {
+    width: 200px;
+}
+
+.post-column {
+    width: auto;
+}
